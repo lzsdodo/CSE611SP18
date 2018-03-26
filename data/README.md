@@ -2,6 +2,13 @@
 
 ## Reference    
 
+- [Kaggle](https://www.kaggle.com/c/bike-sharing-demand/data))			
+	> Location: `~/data/kaggle`
+	
+	- `sampleSubmission.csv`: 142,861 bytes				
+	- `train.csv`: 648,353 bytes	
+	- `test.csv`: 323,856 bytes		
+
 - [MNIST database of handwritten digits](http://yann.lecun.com/exdb/mnist/)		
 	> Location: `~/data/mnist`		
 	
@@ -15,16 +22,10 @@
 	
 	- `img_align_celeba.zip`: 1.34 GB		
 
-- [Kaggle](https://www.kaggle.com/c/bike-sharing-demand/data))			
-	> Location: `~/data/kaggle`
-	
-	- `sampleSubmission.csv`: 142,861 bytes				
-	- `train.csv`: 648,353 bytes	
-	- `test.csv`: 323,856 bytes		
-
 - [Gutenberg](https://www.gutenberg.org/wiki/Category:Bookshelf)			
 	> Location: `~/data/gutenberg`		
 	
 	- `WinstonChurchil.txt`: 9,540,229 bytes		
 
 ## Script Usage     
+

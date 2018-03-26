@@ -7,4 +7,6 @@
 	- OS Images: `Ubuntu 16.04 LTS` - `Standard persistent disk - 10GB`     
 
 - Connect
-	- `gcloud compute --project "ub-cse-611" ssh --zone "us-east1-b" "ann"`      
+	- `gcloud compute --project "ub-cse-611" ssh --zone "us-east1-b" "ann"`     	 
+	- `gcloud compute --project "ub-cse-611" ssh --zone "us-east1-b" "bob"` 	
+	- `gcloud compute --project "ub-cse-611" ssh --zone "us-east1-b" "cindy"` 		
