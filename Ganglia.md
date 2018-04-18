@@ -4,45 +4,50 @@
 ### Basic
 
 	```bash
-	sudo apt-get -y update 
-	sudo apt-get -y upgrade
-	
-	# Configure Firewall
-	sudo ufw enable
-	sudo ufw allow 8649
-	sudo ufw status
-	
+	sudo apt-get -y update && sudo apt-get -y upgrade
 	# http://<master_node_ip>/ganglia
-	```
 	
+	# Install Gmond
+	## Ubuntu
+	sudo apt-get install -y ganglia-monitor
+	## CentOS
+	sudo yum install -y ganglia-gmond
+
+	# Install Gmetad
+	## Ubuntu
+	sudo apt-get install -y gmetad
+	## CentOS
+	sudo yum install -y ganglia-gmetad
+	```
+
+
 ### Server
 
 	```bash
 	# Installing LAMP Stack
-	sudo apt-get install -y apache2 mariadb-server php7.0 libapache2-mod-php7.0 php7.0-mbstring php7.0-curl php7.0-zip php7.0-gd php7.0-mysql php7.0-curl php7.0-mcrypt
+	sudo apt-get install -y apache2 php libapache2-mod-php rrdtool
 	
 	sudo systemctl start apache2 
 	sudo systemctl enable apache2
 	
 	# Install Ganglia Server
-	sudo apt-get install -y ganglia-monitor rrdtool gmetad ganglia-webfrontend
+	sudo apt-get install -y ganglia-monitor gmetad ganglia-webfrontend
 	```
 	
 	```bash
 	# Configure Ganglia Master Node
 	sudo cp /etc/ganglia-webfrontend/apache.conf /etc/apache2/sites-enabled/ganglia.conf
-	
 	sudo vi /etc/ganglia/gmetad.conf
 	sudo vi /etc/ganglia/gmond.conf
 	
-	sudo systemctl restart ganglia-monitor 
-	sudo systemctl restart gmetad 
-	sudo systemctl restart apache2
+	sudo /etc/init.d/ganglia-monitor restart
+	sudo /etc/init.d/gmetad restart
+	sudo /etc/init.d/apache2 restart
 	```
 	
 	```bash
 	# gmetad.conf
-	data_source "msproj" 60 <master_node_ip>:8649
+	data_source "msproj" 30 master:8649 client1:8649 client2:8649 #<master_ip>:8649 <client_ip:8649> ...
 	```
 	
 	```bash
@@ -56,7 +61,7 @@
 	
 	udp_send_channel {
 		# mcast_join = 239.2.11.71
-		host = <master_node_ip>
+		host = 35.196.148.68 #<master_node_ip>
 		port = 8649
 		ttl = 1
 	}
@@ -82,8 +87,7 @@
 	```bash
 	# Configure Ganglia Client Node
 	sudo vi /etc/ganglia/gmond.conf
-
-	sudo systemctl start ganglia-monitor
+	sudo /etc/init.d/ganglia-monitor restart
 	```
 
 	```bash
@@ -97,7 +101,7 @@
 	
 	udp_send_channel {
 		# mcast_join = 239.2.11.71
-		host = <master_node_ip>
+		host = 35.196.148.68 #<master_node_ip>
 		port = 8649
 		ttl = 1
 	}
