@@ -1,2 +1,0 @@
-Logistic Regression Parameters:
-	1. regularization parameter
