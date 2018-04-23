@@ -7,7 +7,7 @@ import mxnet as mx
 import numpy as np
 import pandas as pd
 
-data_pd = pd.read_csv("../../data/lr/iris.txt",
+data_pd = pd.read_csv("../data/lr/iris.txt",
                           header = None, sep = ',', names = ['x1', 'x2', 'x3', 'x4', 'y'])
 
 # transform categorical variable

@@ -1,0 +1,3 @@
+https://github.com/lzsdodo/CSE611_Ganglia_Monitoring_in_GCP/raw/dev/code/LR/tf_lr.py
+https://github.com/lzsdodo/CSE611_Ganglia_Monitoring_in_GCP/raw/dev/code/LR/mxnet_lr.py
+https://github.com/lzsdodo/CSE611_Ganglia_Monitoring_in_GCP/raw/dev/code/LR/spark_lr.py
