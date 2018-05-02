@@ -1,47 +1,9 @@
 # Install and Config Ganglia
 
-## Instruction
-### Basic
-
-	```bash
-	sudo apt-get -y update && sudo apt-get -y upgrade
-	# http://<master_node_ip>/ganglia
-	
-	# Install Gmond
-	## Ubuntu
-	sudo apt-get install -y ganglia-monitor
-	## CentOS
-	sudo yum install -y ganglia-gmond
-	```
-
 
 ### Server
-
-	```bash
-	# Install Gmetad
-	## Ubuntu
-	sudo apt-get install -y gmetad
-	## CentOS
-	sudo yum install -y ganglia-gmetad
-	
-	# Installing LAMP Stack
-	sudo apt-get install -y apache2 php libapache2-mod-php rrdtool
-	sudo ln -s /usr/share/ganglia-webfrontend/ /var/www/ganglia
-	
-	sudo systemctl start apache2 
-	sudo systemctl enable apache2
-	
-	# Install Ganglia Server
-	sudo apt-get install -y ganglia-monitor gmetad ganglia-webfrontend
-	```
 	
 	```bash
-	# Configure Ganglia Master Node
-	sudo mkdir -p /var/lib/ganglia/rrds
-	sudo chown nobody:nobody /var/lib/ganglia/rrds
-	chmod a+w /var/lib/ganglia/rrds
-	
-	sudo cp /etc/ganglia-webfrontend/apache.conf /etc/apache2/sites-enabled/ganglia.conf
 	sudo vi /etc/ganglia/gmetad.conf
 	sudo vi /etc/ganglia/gmond.conf
 

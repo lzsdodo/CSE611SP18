@@ -4,13 +4,12 @@ sudo pip3 install h5py==2.8.0rc1
 sudo pip3 install scipy==1.0.1
 sudo pip3 install pandas==0.22.0
 
-sudo pip3 install pyspark==2.2.1
 sudo pip3 install tensorflow==1.6.0
 #sudo pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.6.0-cp35-cp35m-linux_x86_64.whl
 sudo pip3 install mxnet==1.1.0
 sudo pip3 install keras==2.1.5
 sudo pip3 install elephas==0.3
-
+sudo pip3 install pyspark==2.2.1
 
 
 
