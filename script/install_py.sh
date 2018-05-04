@@ -2,8 +2,8 @@
 
 # For Python and pip
 sudo apt-get -y update && sudo apt-get -y upgrade
-sudo apt-get install -y build-essential libpq-dev libssl-dev libffi-dev openssl zlib1g-dev bazel
-sudo apt-get install -y python python-dev python3 python3-dev 
+sudo apt-get install -y build-essential libpq-dev libssl-dev libffi-dev openssl zlib1g-dev
+sudo apt-get install -y python python-dev python3 python3-dev
 sudo apt-get install -y python3-pip python-setuptools python-opencv python-virtualenv
 sudo apt-get install -y pkg-config zip g++ unzip
 sudo pip3 install --upgrade pip
@@ -28,6 +28,7 @@ sudo apt-get install -y python3.6
 pip3 install virtualenv
 mkdir -p ~/venv/ && cd ~/venv
 virtualenv --no-site-packages -p python3.6 py3
+cd ~
 
 
 #source ~/venv/py3/bin/activate

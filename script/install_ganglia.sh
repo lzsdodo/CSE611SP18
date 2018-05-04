@@ -7,16 +7,12 @@ sudo apt-get -y update && sudo apt-get -y upgrade
 sudo apt-get install -y ganglia-monitor
 
 ## Ganglia Master Node
-## Install LAMP on your server
-sudo apt-get install -y apache2 php libapache2-mod-php
-
-sudo ln -s /usr/share/ganglia-webfrontend/ /var/www/ganglia
-sudo systemctl start apache2
-sudo systemctl enable apache2
-
 sudo apt-get install -y rrdtool ganglia-monitor gmetad ganglia-webfrontend
 
-sudo mkdir -p /var/lib/ganglia/rrds
-sudo chown nobody:nogroup /var/lib/ganglia/rrds
-sudo chmod a+w /var/lib/ganglia/rrds
 sudo cp /etc/ganglia-webfrontend/apache.conf /etc/apache2/sites-enabled/ganglia.conf
+
+sudo mkdir -p /var/lib/ganglia/rrds
+sudo ln -s /usr/share/ganglia-webfrontend/ /var/www/ganglia
+sudo chown nobody:nogroup /var/lib/ganglia/rrds
+sudo chown nobody:nogroup /var/www/ganglia
+

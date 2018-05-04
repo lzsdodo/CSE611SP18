@@ -5,7 +5,6 @@ cd ~ && mkdir script code data
 
 # For System
 sudo apt-get -y update && sudo apt-get -y upgrade
-sudo apt-get -y install software-properties-common
 
 # For java
 sudo apt-get -y install default-jre default-jdk
