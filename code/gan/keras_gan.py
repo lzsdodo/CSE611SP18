@@ -3,15 +3,17 @@
 
 from keras.datasets import mnist
 from keras.layers import Input, Dense, Reshape, Flatten, Dropout
-from keras.layers import BatchNormalization, Activation, ZeroPadding2D
+from keras.layers import BatchNormalization, Activation
 from keras.layers.advanced_activations import LeakyReLU
-from keras.layers.convolutional import UpSampling2D, Conv2D, Conv2DTranspose
+from keras.layers.convolutional import Conv2D, Conv2DTranspose
 from keras.models import Sequential, Model
 from keras.optimizers import Adam
-
+from datetime import datetime
+import matplotlib
+matplotlib.use('agg')
 import matplotlib.pyplot as plt
-
 import numpy as np
+from ft_notify import send_notification
 
 class DCGAN():
     def __init__(self):
@@ -26,7 +28,9 @@ class DCGAN():
 
         # Build and compile the discriminator
         self.discriminator = self.build_discriminator()
-        self.discriminator.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
+        self.discriminator.compile(loss='binary_crossentropy',
+            optimizer=optimizer,
+            metrics=['accuracy'])
 
         # Build and compile the generator
         self.generator = self.build_generator()
@@ -50,7 +54,7 @@ class DCGAN():
 
         model = Sequential()
 
-        model.add(Dense(512 * 7 * 7, activation="relu", input_shape=(self.latent_dim,)))
+        model.add(Dense(512 * 7 * 7, input_shape=(self.latent_dim,)))
         model.add(Reshape((7, 7, 512)))
         model.add(BatchNormalization())
         model.add(LeakyReLU(alpha=0.1))
@@ -99,9 +103,9 @@ class DCGAN():
 
         return Model(img, validity)
 
-    def train(self, epochs=2, batch_size=32, save_interval=50):
+    def train(self, epochs=1000, batch_size=100, save_interval=100):
 
-        # Load the dataset
+        # Load the dataset- 50,000 training images in total
         (X_train, _), (_, _) = mnist.load_data()
 
         # Rescale -1 to 1
@@ -109,7 +113,9 @@ class DCGAN():
         X_train = np.expand_dims(X_train, axis=3)
 
         half_batch = int(batch_size / 2)
-
+        
+        starttime = datetime.now()
+        
         for epoch in range(epochs):
 
             # ---------------------
@@ -145,6 +151,8 @@ class DCGAN():
             # If at save interval => save generated image samples
             if epoch % save_interval == 0:
                 self.save_imgs(epoch)
+                
+        print('Training time for {} steps is '.format(1000), (datetime.now()-starttime).seconds)
 
     def save_imgs(self, epoch):
         r, c = 2, 2
@@ -162,5 +170,16 @@ class DCGAN():
                 axs[i,j].imshow(gen_imgs[cnt, :,:,0], cmap='gray')
                 axs[i,j].axis('off')
                 cnt += 1
-        fig.savefig("./images/mnist_%d.png" % epoch)
+        fig.savefig("./images/keras/mnist_%d.png" % epoch)
         plt.close()
+        
+# Local Mac: Training time for 2 epoch(700*2 batch) is 17682.
+        
+def main():
+    dcgan = DCGAN()
+    send_notification('Gan-Keras-Start', 'Training Starts!')
+    dcgan.train()
+    send_notification('Gan-Keras-End', 'Congrats! Completed.')
+    
+if __name__ == '__main__':
+    main()

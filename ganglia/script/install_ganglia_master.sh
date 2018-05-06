@@ -3,7 +3,7 @@
 # Download Ganglia
 echo "Installing Ganglia..."
 sudo apt-get update -y && sudo apt-get upgrade -y
-sudo apt-get install -y rrdtool ganglia-monitor gmetad ganglia-webfrontend ganglia-monitor-python
+sudo apt-get install -y rrdcached rrdtool ganglia-monitor gmetad ganglia-webfrontend ganglia-monitor-python
 
 
 # Configure Ganglia
@@ -27,6 +27,7 @@ wget -c https://raw.githubusercontent.com/lzsdodo/CSE611_Ganglia_Monitoring_in_G
 wget -c https://raw.githubusercontent.com/lzsdodo/CSE611_Ganglia_Monitoring_in_GCP/dev/ganglia/conf/conf.d/multicpu.conf
 
 cat ./hosts.conf | sudo tee -a /etc/hosts
+rm ./hosts.conf
 sudo mv ./gmetad.conf /etc/ganglia/gmetad.conf
 sudo mv ./gmond.conf /etc/ganglia/gmond.conf
 sudo mv ./multicpu.conf /etc/ganglia/conf.d/multicpu.conf

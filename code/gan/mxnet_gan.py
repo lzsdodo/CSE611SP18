@@ -2,16 +2,18 @@
 # -*- coding: utf-8 -*-
 
 from sklearn.datasets import fetch_mldata
+import numpy as np
+import mxnet as mx
+import cv2
+
 mnist = fetch_mldata('MNIST original')
 
-import numpy as np
 np.random.seed(1)
 p = np.random.permutation(mnist.data.shape[0])
 X = mnist.data[p]
 X = X.reshape((70000, 28, 28))
 
 # resize to 64 * 64
-import cv2
 X = np.asarray([cv2.resize(x, (64,64)) for x in X])
 
 # rerange between -1 and 1
@@ -26,7 +28,8 @@ X = np.tile(X, (1, 3, 1, 1))
 
 # put the images into MXNet’s NDArrayIter, 
 # which will allow MXNet to easily iterate through the images during training
-import mxnet as mx
+
+
 batch_size = 100
 image_iter = mx.io.NDArrayIter(X, batch_size=batch_size)
 
@@ -112,8 +115,7 @@ sigma = 0.02
 lr = 0.001
 beta1 = 0.5
 # If you do not have a GPU. Use the below outlined
-ctx = mx.cpu()
-#ctx = mx.gpu(0)
+ctx = mx.gpu() if mx.test_utils.list_gpus() else mx.cpu()
 
 #=============Generator Module=============
 generator = mx.mod.Module(symbol=generatorSymbol, data_names=('rand',), label_names=None, context=ctx)

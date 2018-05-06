@@ -1,13 +1,5 @@
-# Code Example here
+## LR: Credit Card Fraud Detection on Kaggle
+> [Dataset: Kaggle](https://www.kaggle.com/mlg-ulb/creditcardfraud/data)		 
 
-## LR: Bike Sharing Demand on Kaggle
-> [Dataset: Kaggle](https://www.kaggle.com/c/bike-sharing-demand/data)		 
-
-## Image Classification: Handwritten digits classification     
+## Image Classification / Gans: Handwritten digits classification 
 > [Dataset: MNIST](http://yann.lecun.com/exdb/mnist/)				
-
-## GANs: Face GANs    
-> [Dataset: CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html)		
-
-## NLP: Words Prediction     	
-> [Dataset: Gutenberg](https://www.gutenberg.org/wiki/Category:Bookshelf)		

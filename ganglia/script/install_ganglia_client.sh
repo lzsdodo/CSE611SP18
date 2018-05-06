@@ -16,6 +16,7 @@ wget -c https://raw.githubusercontent.com/lzsdodo/CSE611_Ganglia_Monitoring_in_G
 wget -c https://raw.githubusercontent.com/lzsdodo/CSE611_Ganglia_Monitoring_in_GCP/dev/ganglia/conf/conf.d/multicpu.conf
 
 cat ./hosts.conf | sudo tee -a /etc/hosts
+rm ./hosts.conf
 sudo mv /etc/ganglia/gmond.conf /etc/ganglia/gmond.conf.bac
 sudo mv ./gmond.conf /etc/ganglia/gmond.conf
 sudo mv ./multicpu.conf /etc/ganglia/conf.d/multicpu.conf
