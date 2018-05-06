@@ -16,6 +16,7 @@ if [ $hn == "ann" ]; then
         cd ~
         echo "Completed" | tee -a record.txt
         date | tee -a record.txt
+        sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
         sleep 2m
     done
 
@@ -32,6 +33,7 @@ elif [ $hn == "bob" ]; then
         cd ~
         echo "Completed" | tee -a record.txt
         date | tee -a record.txt
+        sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
         sleep 2m
     done
 

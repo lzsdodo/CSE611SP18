@@ -64,6 +64,7 @@ cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels = y, logits
 opt = tf.train.GradientDescentOptimizer(learning_rate).minimize(cost)
 
 
+te_acc = 0
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
     cost_ave = 0
@@ -76,7 +77,10 @@ with tf.Session() as sess:
             cost_ave = 0
         t_accuracy= sess.run(accuracy, feed_dict = {X: X_batch, y: y_batch})
         preds = sess.run(pred, feed_dict = {X: train_data, y: train_label})
-        print('The train accuracy is', t_accuracy)
-        print('The predictions accuracy is', np.sum(preds))
+        #print('The train accuracy is', t_accuracy)
+        #print('The predictions accuracy is', np.sum(preds))
         te_accuracy= sess.run(accuracy, feed_dict = {X: test_data, y: test_label})
-        print('The test accuracy is', te_accuracy)
+        #print('The test accuracy is', te_accuracy)
+        te_acc = te_accuracy
+    
+    print("Test accuracy: " + te_acc)

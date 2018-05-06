@@ -19,8 +19,7 @@ train_label = data_pd[msk].iloc[:,30:].as_matrix()
 test_data = data_pd[~msk].iloc[:,0:30].as_matrix()
 test_label = data_pd[~msk].iloc[:, 30:].as_matrix()
 
-
-batch_size = 1
+batch_size = 100
 
 # NDArrayIter, which is useful for iterating over both numpy ndarrays and MXNet NDArrays.
 train_iter = mx.io.NDArrayIter(train_data, train_label, batch_size, shuffle = True, label_name = 'lr_label')

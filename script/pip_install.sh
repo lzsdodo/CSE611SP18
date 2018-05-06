@@ -2,16 +2,17 @@
 
 pip install h5py==2.8.0rc1
 pip install opencv-python
-pip install scipy==1.0.1
-pip install pandas==0.22.0
-pip install matplotlib==2.2.2
-pip install scikit-learn==0.19.1
-pip install keras==2.1.5
-pip install elephas==0.3
+pip install scipy
+pip install numpy
+pip install pandas
+pip install matplotlib
+pip install scikit-learn
+pip install keras
+pip install elephas
 
-pip install tensorflow==1.6.0
-pip install mxnet==1.1.0
-pip install pyspark==2.2.1
+pip install tensorflow
+pip install mxnet
+pip install pyspark
 
 
 

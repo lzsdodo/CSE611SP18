@@ -20,3 +20,4 @@ mnist_data=1jyatVgDSnBafdfoz4LVhczqpfxvsc6mw
 unzip ./data/mnist/jpg.zip -d ./data/mnist
 rm ./data/mnist/jpg.zip
 
+rm gdlink
