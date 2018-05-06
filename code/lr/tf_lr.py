@@ -83,4 +83,4 @@ with tf.Session() as sess:
         #print('The test accuracy is', te_accuracy)
         te_acc = te_accuracy
     
-    print("Test accuracy: " + te_acc)
+    print("Test accuracy: ", te_acc)
