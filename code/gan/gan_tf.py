@@ -10,10 +10,14 @@ import doutils
 import tensorflow as tf
 import helper
 from datetime import datetime
-from ft_notify import send_to_channel
+from ft_notify import send_notification
+
+data_dir = '../../data/mnist/'
+helper.download_extract('jpg', data_dir)
 
 show_n_images = 20
-mnist_images = doutils.get_batch(glob(os.path.join('../../data', 'mnist_jpg/*.jpg'))[:show_n_images], 28, 28, 'L')
+
+mnist_images = doutils.get_batch(glob(os.path.join(data_dir, 'jpg/*.jpg'))[:show_n_images], 28, 28, 'L')
 
 def model_inputs(image_width, image_height, image_channels, z_dim):
     
@@ -53,7 +57,7 @@ def generator(z, out_channel_dim, is_train=True):
         x1 = tf.reshape(x1, (-1, 7, 7, 512))
         bn1 = tf.layers.batch_normalization(x1, training=is_train)
         relu1 = tf.maximum(alpha * bn1, bn1)
-        dropout1 = tf.nn.dropout(relu1, .8) # x7x512
+        dropout1 = tf.nn.dropout(relu1, .8) # 7x7x512
         x2 = tf.layers.conv2d_transpose(dropout1, 256, 5, strides=1, padding='same', kernel_initializer=tf.contrib.layers.xavier_initializer())
         bn2 = tf.layers.batch_normalization(x2, training=is_train)
         relu2 = tf.maximum(alpha * bn2, bn2)
@@ -157,14 +161,12 @@ def main():
     beta1 = 0.5
     epochs = 2
     
-    mnist_dataset = doutils.Dataset('mnist', glob(os.path.join(data_dir, 'mnist/*.jpg')))
+    mnist_dataset = doutils.Dataset('jpg', glob(os.path.join(data_dir, 'jpg/*.jpg')))
     with tf.Graph().as_default():
-        send_to_channel(channel_api, sendkey, 'gan-gan-tf', 'Training starts!')
+        send_notification('gan-tf', 'Training starts!')
         train(epochs, batch_size, z_dim, learning_rate, beta1, mnist_dataset.get_batches,
               mnist_dataset.shape, mnist_dataset.image_mode)
-        send_to_channel(channel_api, sendkey, 'gan-gan-tf', 'Congrats! Completed')
-        
-# Training time for 2 epoch is  13314
+        send_notification('gan-tf', 'Congrats! Completed')
         
 if __name__ == '__main__':
     main()

@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from ft_notify import send_notification
 
+
 class DCGAN():
     def __init__(self):
         # Input shape
@@ -92,7 +93,6 @@ class DCGAN():
         model.add(BatchNormalization())
         model.add(LeakyReLU(alpha=0.1))
         model.add(Dropout(0.2))
-
         model.add(Flatten())
         model.add(Dense(1, activation='sigmoid'))
 
@@ -177,9 +177,9 @@ class DCGAN():
         
 def main():
     dcgan = DCGAN()
-    send_notification('Gan-Keras-Start', 'Training Starts!')
+    send_notification('gan-keras', 'Training starts!')
     dcgan.train()
-    send_notification('Gan-Keras-End', 'Congrats! Completed.')
+    send_notification('gan-keras', 'Congrats! Completed')
     
 if __name__ == '__main__':
     main()

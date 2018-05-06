@@ -8,7 +8,7 @@ from pyspark.ml.classification import LogisticRegression
 from pyspark.ml import Pipeline
 from pyspark.ml.evaluation import MulticlassClassificationEvaluator
 
-img_dir = "/home/hadoop/spark/personalities/"
+img_dir = "../../data/personalities/"
 
 #Read images and Create training & test DataFrames for transfer learning
 jobs_df = readImages(img_dir + "/jobs").withColumn("label", lit(1))
