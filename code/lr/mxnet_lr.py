@@ -7,7 +7,7 @@ import mxnet as mx
 import numpy as np
 import pandas as pd
 
-data_pd = pd.read_csv("../../data/creditcard.csv", sep = ',')
+data_pd = pd.read_csv("../../data/kaggle/creditcard.csv", sep = ',')
 # transform categorical variable
 data_pd = pd.get_dummies(data_pd, columns = ['Class'])
 

@@ -20,7 +20,7 @@ spark = SparkSession.builder.appName("LogisticRegression").getOrCreate()
 #                          header = False, sep = ',', schema = schema)
     
 # read data using pandas
-data_pd = pd.read_csv("../../data/creditcard.csv", sep = ',')
+data_pd = pd.read_csv("../../data/kaggle/creditcard.csv", sep = ',')
 
 # transform categorical variable
 #data_pd.Class = pd.Categorical(data_pd.Class)

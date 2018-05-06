@@ -18,7 +18,7 @@ steps = 1000
 ck_steps = 100
 batch_size = 100
 
-data_pd = pd.read_csv("../../data/creditcard.csv", sep = ',')
+data_pd = pd.read_csv("../../data/kaggle/creditcard.csv", sep = ',')
 
 ## balance the data
 #df_majority = data_pd[data_pd.Class==0]
