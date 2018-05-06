@@ -23,15 +23,16 @@ sudo apt-get install -y python3-pip
 sudo pip3 install --upgrade pip
 sudo pip install --upgrade pip
 
+
 # venv
-pip install virtualenv
+sudo apt-get install -y python-virtualenv
 mkdir -p ~/venv/ && cd ~/venv
 virtualenv --no-site-packages -p python3.6 py3
 
 cd ~
-wget -c https://raw.githubusercontent.com/lzsdodo/CSE611_Ganglia_Monitoring_in_GCP/dev/script/pip_requirement.txt
 source ~/venv/py3/bin/activate
-#pip freeze > pip_requirement.txt
+wget -c https://raw.githubusercontent.com/lzsdodo/CSE611_Ganglia_Monitoring_in_GCP/dev/script/pip_requirement.txt
 pip install -r pip_requirement.txt
+#pip freeze > pip_requirement.txt
 #deactivate
-rm pip_requment.txt
+rm pip_requirement.txt
