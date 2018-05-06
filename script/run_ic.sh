@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
- 
 hn=$(hostname)
 echo "$hn node"
 
@@ -36,12 +34,5 @@ elif [ $hn == "bob" ]; then
         date | tee -a record.txt
         sleep 2m
     done
-    
-    
-elif [ $hn == "cindy" ]; then
-    # Spark
 
 fi
-
-
-

@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
-
-#!/bin/bash
- 
 hn=$(hostname)
 echo "$hn node"
 
@@ -39,11 +35,4 @@ elif [ $hn == "bob" ]; then
         sleep 2m
     done
     
-    
-elif [ $hn == "cindy" ]; then
-    # Spark
-
 fi
-
-
-

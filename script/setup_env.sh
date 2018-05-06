@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~ && mkdir script code data
+cd ~ && mkdir script data
 
 # For System
 ## Set Timezone
@@ -8,8 +8,7 @@ cd ~ && mkdir script code data
 sudo timedatectl set-timezone America/New_York
 
 sudo apt-get update -y && sudo apt-get upgrade -y 
-sudo apt-get install -y build-essential libpq-dev libssl-dev libffi-dev openssl zlib1g-dev
-sudo apt-get install -y pkg-config zip g++ unzip git
+sudo apt-get install -y build-essential libpq-dev libssl-dev libffi-dev openssl zlib1g-dev libbz2-dev pkg-config zip g++ unzip git
 
 # Setup ENV
 hn=$(hostname)
@@ -25,7 +24,6 @@ if [ $hn == "master" ]; then
     #sudo service gmetad restart
     #sudo service ganglia-monitor restart
     sudo /etc/init.d/gmetad restart
-    sudo /etc/init.d/ganglia-monitor restart
     sudo /etc/init.d/apache2 restart
     
     
@@ -35,7 +33,6 @@ elif [ $hn == "ann" ]; then
     # Ganglia
     wget -c https://raw.githubusercontent.com/lzsdodo/CSE611_Ganglia_Monitoring_in_GCP/dev/ganglia/script/install_ganglia_client.sh
     bash install_ganglia_client.sh
-    #sudo service ganglia-monitor restart
     rm install_ganglia_client.sh
 
 elif [ $hn == "bob" ]; then
@@ -44,7 +41,6 @@ elif [ $hn == "bob" ]; then
     # Ganglia
     wget -c https://raw.githubusercontent.com/lzsdodo/CSE611_Ganglia_Monitoring_in_GCP/dev/ganglia/script/install_ganglia_client.sh
     bash install_ganglia_client.sh
-    #sudo service ganglia-monitor restart
     rm install_ganglia_client.sh
     
     
@@ -54,8 +50,7 @@ elif [ $hn == "cindy" ]; then
     # Ganglia
     wget -c https://raw.githubusercontent.com/lzsdodo/CSE611_Ganglia_Monitoring_in_GCP/dev/ganglia/script/install_ganglia_client.sh
     bash install_ganglia_client.sh
-    #sudo service ganglia-monitor restart
-    sudo /etc/init.d/ganglia-monitor restart
+    rm install_ganglia_client.sh
     
     
     # Java for Spark
@@ -81,7 +76,7 @@ echo "Completed congiguration for $hn."
 echo "Downloading data..."
 wget -c https://raw.githubusercontent.com/lzsdodo/CSE611_Ganglia_Monitoring_in_GCP/dev/script/download_data.sh
 bash download_data.sh
-
-
+rm download_data.sh
+rm gdlink
 
 sudo /etc/init.d/ganglia-monitor restart
