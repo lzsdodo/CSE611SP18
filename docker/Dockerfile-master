@@ -1,0 +1,15 @@
+FROM ubuntu:16.04
+
+RUN apt-get update -y && sudo apt-get upgrade -y && \ 
+    apt-get install -y rrdcached rrdtool ganglia-monitor gmetad ganglia-webfrontend ganglia-monitor-python && \
+    apt-get clean
+
+RUN mkdir -p /var/lib/ganglia/rrds && \
+    mkdir -p /usr/lib/ganglia/python_modules/ && \
+    ln -s /usr/share/ganglia-webfrontend/ /var/www/ganglia && \
+    chown nobody:nogroup /var/lib/ganglia/rrds && \
+    chown nobody:nogroup /usr/lib/ganglia/python_modules/ && \
+    chown nobody:nogroup /var/www/ganglia && \
+    mv /etc/ganglia/gmond.conf /etc/ganglia/gmond.conf.bac && \ 
+    mv /etc/ganglia/gmetad.conf /etc/ganglia/gmetad.conf.bac && \ 
+    cp /etc/ganglia-webfrontend/apache.conf /etc/apache2/sites-enabled/ganglia.conf
