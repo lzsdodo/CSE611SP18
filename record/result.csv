@@ -1,0 +1,177 @@
+		LR				IC			GANs					
+		tf	mx	spk		tf	mx		tf	mx				
+load														
+load one	max	1.360										lr tf	39min-20times	http://35.185.1.241/ganglia/?r=custom&cs=5%2F6%2F2018+18%3A19&ce=5%2F6%2F2018+19%3A13&m=load_one&c=cluster&h=ann&tab=m&vn=&hide-hf=false&mc=2&z=xlarge&metric_group=NOGROUPS_%7C_load
+	avg	689.240										lr mx	40min-20times	http://35.185.1.241/ganglia/?r=custom&cs=05%2F06%2F2018+17%3A57&ce=05%2F06%2F2018+19%3A15&m=load_one&c=cluster&h=bob&tab=m&vn=&hide-hf=false&mc=2&z=small&metric_group=NOGROUPS_%7C_load
+	min	150.000										lr spk	29min-20times	http://35.185.1.241/ganglia/?r=custom&cs=05%2F06%2F2018+17%3A57&ce=05%2F06%2F2018+19%3A04&m=load_one&c=cluster&h=cindy&tab=m&vn=&hide-hf=false&mc=2&z=small&metric_group=NOGROUPS_%7C_load
+load five	max	830.000												
+	avg	685.000										ic tf		
+	min	530.000										ic mx		
+load fifteen	max	720.000												
+	avg	659.210										gan tf		
+	min	580.000										gan mx		
+cpu														
+cpu Idle	max	100.000												
+	avg	68.320												
+	min	21.660												
+cpu0_idle	max	100.000												
+	avg	67.120												
+	min	13.500												
+cpu1_idle	max	100.000												
+	avg	69.220												
+	min	19.600												
+cpu_sintr	max	100.000												
+	avg	10.800												
+	min	0.000												
+cpu0_sintr	max	100.00m												
+	avg	2.46m												
+	min	0.000												
+cpu1_sintr	max	140.00m												
+	avg	10.43m												
+	min	0.000												
+cpu_system	max	19.520												
+	avg	6.860												
+	min	0.000												
+cpu0_system	max	21.520												
+	avg	6.950												
+	min	0.000												
+cpu1_system	max	20.900												
+	avg	4.740												
+	min	0.000												
+cpu_wio	max	0.000												
+	avg	435.72m												
+	min	8.560												
+cpu0_wio	max	15.850												
+	avg	770.82m												
+	min	0.000												
+cpu0_wio	max	1.440												
+	avg	33.51m												
+	min	0.000												
+cpu_user	max	75.700												
+	avg	24.410												
+	min	0.000												
+diskstat														
+sda_io_time	max	3.060												
+	avg	401.38m												
+	min	0.000												
+sda_precent_io_time	max	10.210												
+	avg	1.340												
+	min	0.000												
+sda_weighted_io_time 	max	187.33m												
+	avg	26.39m												
+	min	0.000												
+sda_read_bytes_per_sec	max	9.57M												
+	avg	1.28M												
+	min	0.000												
+sda_write_bytes_per_sec 	max	6.28k												
+	avg	3.06k												
+	min	819.200												
+sda_read_time 	max	187.20m												
+	avg	26.35m												
+	min	0.000												
+sda_write_time	max	1.20m												
+	avg	48.50u												
+	min	0.000												
+sda_reads	max	5.49k												
+	avg	796.360												
+	min	0.000												
+sda_writes 	max	27.000												
+	avg	12.630												
+	min	4.000												
+sda_reads_merged 	max	3.000												
+	avg	54.46m												
+	min	0.000												
+sda_writes_merged	max	19.000												
+	avg	9.720												
+	min	2.000												
+memory														
+mem_buffers	max	11.42k												
+	avg	6.33k												
+	min	1.36k												
+mem_cached	max	325.22k												
+	avg	179.80k												
+	min	53.05k												
+mem_dirty	max	61.44k												
+	avg	22.11k												
+	min	0.000												
+mem_free	max	16.18M												
+	avg	15.89M												
+	min	15.51M												
+mem_mapped	max	122.76M												
+	avg	83.30M												
+	min	47.74M												
+vm														
+vm_pgmajfault	max	25.590												
+	avg	3.480												
+	min	0.000												
+vm_pgpgin	max	9.35k												
+	avg	1.25k												
+	min	0.000												
+vm_pgpgou	max	6.130												
+	avg	2.970												
+	min	800.00m												
+network														
+bytes_in	max	279.260												
+	avg	143.740												
+	min	4.400												
+bytes_out	max	1.79k												
+	avg	1.31k												
+	min	719.600												
+rx_bytes_ens4 	max	707.660												
+	avg	156.960												
+	min	0.000												
+tx_bytes_ens4 	max	2.48k												
+	avg	1.31k												
+	min	59.720												
+pkts_in	max	570.00m												
+	avg	368.09m												
+	min	70.00m												
+pkts_out	max	10.670												
+	avg	8.090												
+	min	4.400												
+rx_pkts_ens4	max	2.800												
+	avg	507.48m												
+	min	0.000												
+tx_pkts_ens4	max	14.790												
+	avg	8.070												
+	min	399.90m												
+Overview														
+CPU User	max	0.757	0.974	0.758										
+	avg	0.244	0.467	0.235										
+	min													
+CPU System	max	0.195	0.039	0.025										
+	avg	0.069	0.017	0.006										
+	min													
+CPU Wait	max	0.086	0.064	0.061										
+	avg	0.004	0.003	0.008										
+	min													
+CPU Sintr	max	0.001	0.001	0.001										
+	avg	0.000	0.000	0.000										
+	min													
+CPU Idle	max	1.000	1.000	1.000										
+	avg	0.683	0.513	0.751										
+	min	0.217	0.000	0.199										
+Mem Use	max	565.6M	474.9M	1.4G										
+	avg	337.5M	319.1M	475.9M										
+	min	181.8M	178.8M	183.1M										
+Mem Cache	max	317.6M	298.7M	348.2M										
+	avg	175.6M	173.1M	177.0M										
+	min	51.8M	51.7M	52.4M										
+Mem Buffer	max	11.2M	7.2M	7.4M										
+	avg	6.2M	4.5M	4.2M										
+	min	1.3M	1.3M	1.5M										
+Load one min	max	1.360	1.980	1.270										
+	avg	702.1m	1.000	548.9m										
+	min	150.0m	10.0m	10.0m										
+Load CPUs	max	2.000	2.000	2.000										
+	avg	2.000	2.000	2.000										
+	min													
+Load Procs	max	2.000	3.000	3.000										
+	avg	735.4m	1.100	564.4m										
+	min	0.000	0.000	0.000										
+Network In	max	279.300	329.800	318.300										
+	avg	159.700	138.800	121.200										
+	min	14.600	21.500	0.000										
+Network Out	max	1.6k	1.9k	2.0k										
+	avg	1.4k	1.3k	1.4k										
+	min	719.600	790.400	798.800										

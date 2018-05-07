@@ -1,6 +1,9 @@
 #!/bin/bash
 
-cd ~ && mkdir script data
+cd ~ 
+mkdir code script data
+mkdir -p code/gan/images/mxnet
+mkdir -p code/gan/images/tf
 
 # For System
 ## Set Timezone

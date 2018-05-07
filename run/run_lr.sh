@@ -16,7 +16,7 @@ if [ $hn == "ann" ]; then
         echo -e "$(date +%H:%M:%S)\nCompleted" | tee -a record_tf_lr.txt
         date | tee -a record_tf_lr.txt
         sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
-        sleep 2m
+        sleep 10s
     done
 
 elif [ $hn == "bob" ]; then
@@ -47,7 +47,7 @@ elif [ $hn == "cindy" ]; then
         cd ~
         echo -e "$(date +%H:%M:%S)\nCompleted" | tee -a record_spk_lr.txt
         sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
-        sleep 2m
+        sleep 10s
     done
 
 fi

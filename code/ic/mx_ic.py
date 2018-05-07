@@ -29,7 +29,7 @@ fc1  = mx.sym.FullyConnected(data=data, num_hidden=128)
 act1 = mx.sym.Activation(data=fc1, act_type="relu")
 
 # The second fully-connected layer and the corresponding activation function
-fc2  = mx.sym.FullyConnected(data=act1, num_hidden = 64)
+fc2  = mx.sym.FullyConnected(data=act1, num_hidden=64)
 act2 = mx.sym.Activation(data=fc2, act_type="relu")
 
 
