@@ -1,81 +1,63 @@
 0 time for lr mxnet
 17:57:50 - 17:59:47
-Completed
 
 1 time for lr mxnet
 18:01:48 - 18:03:45
-Completed
 
 2 time for lr mxnet
 18:05:45 - 18:07:44
-Completed
 
 3 time for lr mxnet
 18:09:44 - 18:11:42
-Completed
 
 4 time for lr mxnet
 18:13:42 - 18:15:41
-Completed
 
 5 time for lr mxnet
 18:17:41 - 18:19:39
-Completed
 
 6 time for lr mxnet
 18:21:39 - 18:23:37
-Completed
 
 7 time for lr mxnet
 18:25:37 - 18:27:35
-Completed
 
 8 time for lr mxnet
 18:29:35 - 18:31:33
-Completed
 
 9 time for lr mxnet
 18:33:33 - 18:35:32
-Completed
 
 10 time for lr mxnet
 18:37:33 - 18:39:32
-Completed
 
 11 time for lr mxnet
 18:41:32 - 18:43:30
-Completed
 
 12 time for lr mxnet
 18:45:30 - 18:47:26
-Completed
 
 13 time for lr mxnet
 18:49:26 - 18:51:25
-Completed
 
 14 time for lr mxnet
 18:53:26 - 18:55:25
-Completed
 
 15 time for lr mxnet
 18:57:25 - 18:59:23
-Completed
 
 16 time for lr mxnet
 19:01:23 - 19:03:21
-Completed
 
 17 time for lr mxnet
 19:05:21 - 19:07:19
-Completed
 
 18 time for lr mxnet
 19:09:19 - 19:11:19
-Completed
 
 19 time for lr mxnet
 19:13:19 - 19:15:17
-Completed
+
+
 
 19:15 - 17:57 - 00:38 = 40
