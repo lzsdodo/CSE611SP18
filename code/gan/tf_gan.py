@@ -8,12 +8,10 @@ matplotlib.use('agg')
 from matplotlib import pyplot
 import doutils
 import tensorflow as tf
-import helper
 from datetime import datetime
 from ft_notify import send_notification
 
 data_dir = '../../data/mnist/'
-helper.download_extract('jpg', data_dir)
 
 show_n_images = 20
 
@@ -161,7 +159,7 @@ def main():
     beta1 = 0.5
     epochs = 2
     
-    mnist_dataset = doutils.Dataset('jpg', glob(os.path.join(data_dir, 'jpg/*.jpg')))
+    mnist_dataset = doutils.Dataset('mnist', glob(os.path.join(data_dir, 'jpg/*.jpg')))
     with tf.Graph().as_default():
         send_notification('gan-tf', 'Training starts!')
         train(epochs, batch_size, z_dim, learning_rate, beta1, mnist_dataset.get_batches,

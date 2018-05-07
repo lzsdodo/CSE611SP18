@@ -1,6 +1,8 @@
 #!/bin/bash
 
 pip install h5py==2.8.0rc1
+pip install tqdm
+pip install scikit-image
 pip install opencv-python
 pip install scipy
 pip install numpy
