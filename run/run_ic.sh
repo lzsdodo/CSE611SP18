@@ -21,7 +21,7 @@ if [ $hn == "ann" ]; then
 
 elif [ $hn == "bob" ]; then
     # MXNet
-    for ((i=0; i<5; i++))
+    for ((i=0; i<10; i++))
     do
         echo -e "$i time for ic mxnet\n$(date +%H:%M:%S)" | tee -a record_mx_ic.txt
         # run code
