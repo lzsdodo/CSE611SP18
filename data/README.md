@@ -31,3 +31,6 @@
         - `WinstonChurchil.txt`: 9,540,229 bytes	
 
 
+## Download
+- All data in this repo are just placeholder
+    - Real dataset can be downloaded on [here](https://www.dropbox.com/sh/ntijb1l71463jzw/AAC7_dY6DitJWZfHuNQXAs-sa?dl=0)
