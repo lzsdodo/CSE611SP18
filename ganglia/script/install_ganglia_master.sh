@@ -21,10 +21,10 @@ echo "Configuring host, gmetad and gmond"
 sudo mv /etc/ganglia/gmetad.conf /etc/ganglia/gmetad.conf.bac
 sudo mv /etc/ganglia/gmond.conf /etc/ganglia/gmond.conf.bac
 
-wget -c https://raw.githubusercontent.com/lzsdodo/CSE611_Ganglia_Monitoring_in_GCP/dev/ganglia/conf/hosts.conf
-wget -c https://raw.githubusercontent.com/lzsdodo/CSE611_Ganglia_Monitoring_in_GCP/dev/ganglia/conf/gmetad.conf
-wget -c https://raw.githubusercontent.com/lzsdodo/CSE611_Ganglia_Monitoring_in_GCP/dev/ganglia/conf/gmond.conf
-wget -c https://raw.githubusercontent.com/lzsdodo/CSE611_Ganglia_Monitoring_in_GCP/dev/ganglia/conf/conf.d/multicpu.conf
+wget -c https://raw.githubusercontent.com/lzsdodo/CSE611SP18/master/ganglia/conf/hosts.conf
+wget -c https://raw.githubusercontent.com/lzsdodo/CSE611SP18/master/ganglia/conf/gmetad.conf
+wget -c https://raw.githubusercontent.com/lzsdodo/CSE611SP18/master/ganglia/conf/gmond.conf
+wget -c https://raw.githubusercontent.com/lzsdodo/CSE611SP18/master/ganglia/conf/conf.d/multicpu.conf
 
 cat ./hosts.conf | sudo tee -a /etc/hosts
 rm ./hosts.conf
