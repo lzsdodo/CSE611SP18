@@ -3,33 +3,36 @@
 # Download Ganglia
 echo "Installing Ganglia..."
 
-sudo yum update && yum -y install epel-release
+# sudo setenforce 0 # 临时关闭
+# sudo vi /etc/selinux/config
+# SELINUX=disabled
 
-sudo yum -y install rrdtool
-sudo yum -y install ganglia ganglia-gmond ganglia-gmetad ganglia-web --enablerepo=epel
-
+sudo yum update
+sudo yum -y install epel-release
+sudo yum -y install httpd rrdtool rrdtool-devel php php-fpm
+sudo yum -y install ganglia ganglia-gmond ganglia-gmetad ganglia-web ganglia-gmond-python --enablerepo=epel
 
 sudo mkdir -p /var/lib/ganglia/rrds
 sudo mkdir -p /usr/lib/ganglia/python_modules/
-sudo ln -s /usr/share/ganglia/ /var/www/html/ganglia
 
-sudo chown nobody:nobody /var/lib/ganglia/rrds
-sudo chown nobody:nobody /usr/lib/ganglia/python_modules/
-sudo chown nobody:nobody /var/www/html/ganglia
+sudo chown -R nobody:nobody /var/lib/ganglia/rrds
+sudo chown -R nobody:nobody /usr/share/ganglia
+sudo chown -R nobody:nobody /usr/lib/ganglia/python_modules/
 
 sudo mv /etc/ganglia/gmetad.conf /etc/ganglia/gmetad.conf.bac
 sudo mv /etc/ganglia/gmond.conf /etc/ganglia/gmond.conf.bac
 
-# vi /etc/ganglia/gmetad.conf
-# vi /etc/ganglia/gmond.conf
+# sudo vi /etc/hosts
+# sudo vi /etc/ganglia/gmetad.conf
+# sudo vi /etc/ganglia/gmond.conf
+# sudo vi /etc/httpd/conf.d/ganglia.conf
+# sudo vi /etc/httpd/conf/httpd.conf
 
-# vi /etc/httpd/conf/httpd.conf
-# DocumentRoot "/var/www/html"
+# sudo systemctl start gmetad gmond httpd
+# sudo systemctl enable gmetad gmond httpd
 
-# vi /etc/httpd/conf.d/ganglia.conf
-
-# firewall-cmd --add-port=8649/udp --permanent
-# setsebool -P httpd_can_network_connect 1
-
-# systemctl restart httpd gmetad gmond
-# systemctl enable httpd gmetad httpd
+# sudo firewall-cmd --permanent --zone=public --add-port=8649/udp
+# sudo firewall-cmd --permanent --zone=public --add-port=8649-8652/tcp
+# sudo firewall-cmd --permanent --zone=public --add-service=ganglia-client
+# sudo firewall-cmd --permanent --zone=public --add-service=ganglia-master
+# sudo firewall-cmd --reload
