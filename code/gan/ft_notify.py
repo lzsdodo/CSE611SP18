@@ -5,8 +5,8 @@ import requests
 from datetime import datetime
 from time import sleep
 
-sckey = 'SCU25730T63e3614416fc25707f8b06b42da473e45ae8d1c49b316'
-sendkey = '3520-76150a4e33b7d59016fd1441cff56104'
+sckey = '***'
+sendkey = '***'
 
 self_api = 'https://sc.ftqq.com/{sckey}.send'
 channel_api = 'https://pushbear.ftqq.com/sub?sendkey={sendkey}&text={text}&desp={desp}'
@@ -42,7 +42,7 @@ def send_to_channel(api, sendkey, title, content):
 
 
 def send_notification(title, content):
-    sendkey = '3520-76150a4e33b7d59016fd1441cff56104'
+    sendkey = '***'
     channel_api = 'https://pushbear.ftqq.com/sub?sendkey={sendkey}&text={text}&desp={desp}'
     
     text = title
